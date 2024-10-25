@@ -801,7 +801,7 @@ def add_arguments_vlbi_delay_calibrator(parser):
     )
     parser.add_argument(
         "--ddf_solsdir",
-        type=cwl_dir,
+        type=cwl_file,
         help="[Required if subtracting LoTSS] Path to the SOLSDIR directory of the DDF-pipeline run, where most of the calibration solutions are stored.",
     )
     parser.add_argument(
@@ -1258,7 +1258,7 @@ def get_dico_freqs(input_dir: str, solnames: str = "killMS.DIS2_full.sols.npz") 
     Returns:
         freqs: array of frequencies covered by the solutions.
     """
-    sol_dirs = glob.glob(os.path.join(input_dir, "L*pre-cal.ms"))
+    sol_dirs = glob.glob(os.path.join(input_dir, "L*pre-cal*.ms"))
     freqs = []
     for sol_dir in sol_dirs:
         npz_file = os.path.join(sol_dir, solnames)
