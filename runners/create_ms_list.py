@@ -108,8 +108,12 @@ class VLBIJSONConfig(LINCJSONConfig):
         elif workflow == "setup":
             if (prefac_h5parm is None) or (not prefac_h5parm["path"]):
                 raise ValueError("No LINC solutions specified!")
+            prefac_freqs = get_prefactor_freqs(
+                solname=prefac_h5parm["path"], solset="target"
+            )
             for dd in files:
-                mslist.append(dd)
+                if check_dd_freq(dd, prefac_freqs):
+                    mslist.append(dd)
         elif workflow == "concatenate-flag":
             for dd in files:
                 mslist.append(dd)
