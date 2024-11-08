@@ -268,6 +268,7 @@ From: fedora:38
     #
     # Setup the Python environment.
     #
+    sudo dnf -y install python3-cx-oracle
     wget https://raw.githubusercontent.com/tikk3r/flocs/fedora-py3/requirements3.txt -O $INSTALLDIR/requirements3.txt
     pip --version
     #pip install --upgrade setuptools
@@ -298,7 +299,7 @@ From: fedora:38
     wget https://lta.lofar.eu/software/lofar_lta-2.8.0.tar.gz
     tar xf lofar_lta-*
     cd lofar_lta-2.8.0
-    python setup.py install_oracle
+    #python setup.py install_oracle
     python setup.py install
     cd ..
     rm lofar_lta*.tar.gz
