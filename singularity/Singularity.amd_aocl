@@ -102,7 +102,8 @@ From: fedora:38
 	dnf -y install cmake3 nodejs
     dnf -y install swarp rclone bc
     dnf -y install ripgrep
-    dnf -y install oracle-instantclient-basic
+    wget https://download.oracle.com/otn_software/linux/instantclient/2360000/oracle-instantclient-basic-23.6.0.24.10-1.el9.x86_64.rpm
+    dnf -y install oracle-instantclient-basic-23.6.0.24.10-1.el9.x86_64.rpm
     # Necessary for nomacs
     sudo strip --remove-section=.note.ABI-tag /usr/lib64/libQt5Core.so.5
 
