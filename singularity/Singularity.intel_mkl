@@ -105,6 +105,7 @@ From: fedora:38
 	dnf -y install cmake3 nodejs
     dnf -y install swarp rclone bc
     dnf -y install ripgrep
+    dnf -y install oracle-instantclient-basic
     # Necessary for nomacs
     sudo strip --remove-section=.note.ABI-tag /usr/lib64/libQt5Core.so.5
 
