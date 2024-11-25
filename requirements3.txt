@@ -21,6 +21,7 @@ chardet
 codex-africanus[dask]
 configparser
 corner
+cx_Oracle
 cwlref-runner
 cwl_utils
 cycler
