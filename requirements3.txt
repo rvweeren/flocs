@@ -125,4 +125,4 @@ unittest2
 uritemplate
 urllib3
 wheel
-xmlrunner
+unittest-xml-reporting
