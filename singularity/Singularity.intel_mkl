@@ -249,7 +249,6 @@ EOF
     wget https://raw.githubusercontent.com/tikk3r/flocs/fedora-py3/requirements3.txt -O $INSTALLDIR/requirements3.txt
     pip --version
     pip install --upgrade "setuptools>=v74.0.0 "
-    pip install xmlrunner
     pip --no-cache-dir install virtualenv
 
     /usr/bin/python -m pip uninstall -y numpy
