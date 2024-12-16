@@ -34,7 +34,7 @@ From: fedora:40
 	export CASAREST_VERSION=latest
 	export CFITSIO_VERSION=7.3.47
     export DDFPIPELINE_VERSION=72e5285
-    export DPPP_VERSION=v6.2
+    export DPPP_VERSION=48e75b34
 	export DYSCO_VERSION=2e7f331
     export EVERYBEAM_VERSION=65685cba
     export FFTW_VERSION=3.5.8
@@ -410,6 +410,7 @@ From: fedora:40
     -DBLAS_openblas_LIBRARY="${AOCL_ROOT}/lib/libblis.so" \
     -DCMAKE_CXX_FLAGS="-march=${MARCH} -L${AOCL_ROOT}/lib -lamdlibm -lm -O3 -Ofast" \
         -DCMAKE_C_FLAGS="-march=${MARCH} -L${AOCL_ROOT}/lib -lamdlibm -lm -O3 -Ofast" \
+    -DTARGET_CPU=$MARCH \
     ../src
     make -j $J
     make install
