@@ -26,7 +26,6 @@ cx_Oracle
 cycler
 Cython
 dask[complete]
-git+https://github.com/blaze/datashape.git
 deap
 decorator
 emcee
