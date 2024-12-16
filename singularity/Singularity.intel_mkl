@@ -25,7 +25,7 @@ From: fedora:40
     export PYTHON_CASACORE_PATCH=$INSTALLDIR/python-casacore/python_casacore_setup.patch
     
     # Settings relevant to the installed software.
-    export AOFLAGGER_VERSION=master
+    export AOFLAGGER_VERSION=bdf03b28
     export ARMADILLO_VERSION=9.900.3
     export BLAS_VERSION=3.8.0
     export BOOST_DOT_VERSION=1.69.0
