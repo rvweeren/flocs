@@ -35,9 +35,9 @@ From: fedora:40
 	export CASAREST_VERSION=latest
 	export CFITSIO_VERSION=7.3.47
     export DDFPIPELINE_VERSION=72e5285
-    export DP3_VERSION=v6.2
-    export DYSCO_VERSION=2e7f331
-    export EVERYBEAM_VERSION=df937562
+    export DPPP_VERSION=v6.2
+	export DYSCO_VERSION=2e7f331
+    export EVERYBEAM_VERSION=65685cba
     export FFTW_VERSION=3.5.8
     export HDF5_VERSION=1.14.3
     export IDG_VERSION=011687ed
