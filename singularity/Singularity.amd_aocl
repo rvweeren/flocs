@@ -574,7 +574,7 @@ From: fedora:40
     ## Strip out version requirements.
     sed -i 's/>=.*;/;/' DDFacet/setup.py
     sed -i 's/<=.*"/"/' DDFacet/setup.py
-    sed -i "s/MIN_REQ = 8/MIN_REQ = 11/" DDFacet/setup.py
+    sed -i "s/MIN_REQ = 8/MIN_REQ = 12/" DDFacet/setup.py
     # sed doesn't support negative lookahead, so we use perl here.
     grep -rl "np.float" DDFacet | xargs perl -pi -e 's/np\.float(?![0-9a-zA-Z])/np\.float_/g'
     grep -rl "np.int" DDFacet | xargs perl -pi -e 's/np\.int(?![0-9a-zA-Z])/np\.int_/g'
@@ -585,8 +585,8 @@ From: fedora:40
 
     sed -i "s/npzfile\.iteritems/npzfile\.items/" DDFacet/DDFacet/Imager/ClassFacetMachine.py
     sed -i "4d" DDFacet/pyproject.toml
-    sed -i '9s?$? -DPYTHON_NUMPY_INCLUDE_DIR=/opt/lofar/pyenv-py3/lib64/python3.11/site-packages/numpy/core/include?' DDFacet/setup.cfg
-    sed -i '13s?$? -DPYTHON_NUMPY_INCLUDE_DIR=/opt/lofar/pyenv-py3/lib64/python3.11/site-packages/numpy/core/include?' DDFacet/setup.cfg
+    sed -i '9s?$? -DPYTHON_NUMPY_INCLUDE_DIR=/opt/lofar/pyenv-py3/lib64/python${PYTHON_VERSION}/site-packages/numpy/core/include?' DDFacet/setup.cfg
+    sed -i '13s?$? -DPYTHON_NUMPY_INCLUDE_DIR=/opt/lofar/pyenv-py3/lib64/python${PYTHON_VERSION}/site-packages/numpy/core/include?' DDFacet/setup.cfg
     pip install --no-deps DDFacet/
 
 
@@ -604,8 +604,8 @@ From: fedora:40
     #grep -rl "np.int(" killMS | xargs sed -i 's/np\.int(/np\.int_(/g'
     grep -rl "np.bool" killMS | xargs perl -pi -e 's/np\.bool(?![0-9a-zA-Z])/np\.bool_/'
     grep -rl "np.bool8" killMS | xargs perl -pi -e 's/np\.bool8/np\.bool_/'
-    sed -i '9s?$? -DPYTHON_NUMPY_INCLUDE_DIR=/opt/lofar/pyenv-py3/lib64/python3.11/site-packages/numpy/core/include?' killMS/setup.cfg
-    sed -i '13s?$? -DPYTHON_NUMPY_INCLUDE_DIR=/opt/lofar/pyenv-py3/lib64/python3.11/site-packages/numpy/core/include?' killMS/setup.cfg
+    sed -i '9s?$? -DPYTHON_NUMPY_INCLUDE_DIR=/opt/lofar/pyenv-py3/lib64/python${PYTHON_VERSION}/site-packages/numpy/core/include?' killMS/setup.cfg
+    sed -i '13s?$? -DPYTHON_NUMPY_INCLUDE_DIR=/opt/lofar/pyenv-py3/lib64/python${PYTHON_VERSION}/site-packages/numpy/core/include?' killMS/setup.cfg
     sed -i "147d" killMS/setup.py
     pip install --no-deps killMS/
 
