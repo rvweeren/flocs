@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: fedora:41
+From: fedora:40
 
 %environment
     export INSTALLDIR=/opt/lofar
@@ -14,10 +14,10 @@ From: fedora:41
         OPENBLASTARGET=ZEN
 
 %post
-    # General environment settings.
-    export J=`nproc`
-    export INSTALLDIR=/opt/lofar
-    export PYTHON_VERSION=3.11
+	# General environment settings.
+	export J=`nproc`
+	export INSTALLDIR=/opt/lofar
+	export PYTHON_VERSION=3.12
     export OPENBLAS_NUM_THREADS=1
 
     # Path to where the patch for python-casacore's setup is stored.

@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: fedora:41
+From: fedora:40
 
 %environment
     export INSTALLDIR=/opt/lofar
@@ -15,10 +15,10 @@ From: fedora:41
         OPENBLASTARGET=SANDYBRIDGE
 
 %post
-    # General environment settings.
-    export J=`nproc`
-    export INSTALLDIR=/opt/lofar
-    export PYTHON_VERSION=3.11
+	# General environment settings.
+	export J=`nproc`
+	export INSTALLDIR=/opt/lofar
+	export PYTHON_VERSION=3.12
     export OPENBLAS_NUM_THREADS=1
 
     # Path to where the patch for python-casacore's setup is stored.
@@ -29,9 +29,11 @@ From: fedora:41
     export ARMADILLO_VERSION=9.900.3
     export BLAS_VERSION=3.8.0
     export BOOST_DOT_VERSION=1.69.0
-    export BOOST_VERSION=1.69.0
-    export CASACORE_VERSION=v3.5.0
-    export CFITSIO_VERSION=7.3.47
+	export BOOST_VERSION=1.69.0
+	export CASACORE_VERSION=v3.6.1
+	# Leave at latest, release versions crash for some reason.
+	export CASAREST_VERSION=latest
+	export CFITSIO_VERSION=7.3.47
     export DDFPIPELINE_VERSION=72e5285
     export DP3_VERSION=v6.2
     export DYSCO_VERSION=2e7f331
@@ -206,7 +208,7 @@ EOF
         source /opt/intel/oneapi/mkl/latest/env/vars.sh
     fi
     pip install --upgrade pip wheel "Cython==0.29.30"
-    pip install "numpy==1.26.2"
+    pip install "numpy<2"
     pip install --no-binary pandas 'pandas==2.0.0'
     pip install --no-binary h5py h5py
     pip install -r $INSTALLDIR/requirements.txt
