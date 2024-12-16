@@ -36,7 +36,7 @@ From: fedora:40
 	export CFITSIO_VERSION=7.3.47
     export DDFPIPELINE_VERSION=72e5285
     export DPPP_VERSION=48e75b34
-	export DYSCO_VERSION=2e7f331
+	export DYSCO_VERSION=682fe5
     export EVERYBEAM_VERSION=65685cba
     export FFTW_VERSION=3.5.8
     export HDF5_VERSION=1.14.3
