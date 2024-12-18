@@ -178,8 +178,6 @@ EOF
         sudo dnf -y install cuda-12-6
     fi
 
-    ln -s /usr/lib64/libnsl.so.2.0.0 /usr/lib64/libnsl.so
-
     flexiblas add OPENBLAS /opt/OpenBLAS/lib64/libopenblas.so
     flexiblas64 add OPENBLAS /opt/OpenBLAS/lib64/libopenblas.so
     export FLEXIBLAS=OPENBLAS
