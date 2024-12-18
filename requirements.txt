@@ -2,7 +2,7 @@ altair
 asn1crypto
 astLib
 astropy-healpix
-astropy
+astropy>6
 astroquery
 atomicwrites
 attrs
