@@ -109,7 +109,7 @@ scikit-learn
 scipy
 seaborn
 shapely
-sharedarray<3.2.2
+sharedarray
 six
 SQLAlchemy
 sshtunnel
