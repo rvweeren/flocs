@@ -581,7 +581,10 @@ From: fedora:39
     # Install DDFacet
     #
     cd $INSTALLDIR
-    git clone --single-branch -b 5cec4db8 https://github.com/saopicc/DDFacet.git
+    git clone https://github.com/saopicc/DDFacet.git
+    cd DDFacet
+    git checkout 5cec4db8 
+    cd ..
     ## Strip out version requirements.
     sed -i 's/<=.*"/"/' DDFacet/pyproject.toml
     # sed doesn't support negative lookahead, so we use perl here.
