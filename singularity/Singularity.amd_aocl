@@ -42,7 +42,7 @@ From: fedora:39
     export LOSOTO_VERSION=latest
     export OPENBLAS_VERSION=v0.3.22
     export PYBDSF_VERSION=720f5c3
-    export PYTHON_CASACORE_VERSION=3.5.2
+    export PYTHON_CASACORE_VERSION=3.6.1
     export RMEXTRACT_VERSION=0.5.0
     export SUPERLU_VERSION=5.2.1
     export WSCLEAN_VERSION=v3.5
