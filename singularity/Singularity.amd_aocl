@@ -151,6 +151,7 @@ From: fedora:39
     make install
     cd $INSTALLDIR
     rm -rf /opt/fftw
+    rm -rf /opt/aocl/aocl-linux-aocc-4.0
     ls /opt/aocl/4.0/lib/
     #
     # End AMD installs
