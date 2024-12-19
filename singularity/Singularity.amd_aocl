@@ -220,7 +220,6 @@ From: fedora:39
     sudo dnf -y install python3-cx-oracle
     wget https://raw.githubusercontent.com/tikk3r/flocs/fedora-py3/requirements.txt -O $INSTALLDIR/requirements.txt
     pip --version
-    #pip install --upgrade setuptools
     pip --no-cache-dir install virtualenv
 
     /usr/bin/python -m pip uninstall -y numpy
@@ -327,7 +326,7 @@ From: fedora:39
     -DBUILD_PYTHON3=True \
     -DBUILD_DYSCO=OFF \
     -DCXX11="ON" \
-        -DBLAS_LIBRARIES="${AOCL_ROOT}/lib/libblis.so" \
+    -DBLAS_LIBRARIES="${AOCL_ROOT}/lib/libblis.so" \
     -DFFTW3_LIBRARY="${AOCL_ROOT}/lib/libfftw3.so" \
     -DFFTW3_THREADS_LIBRARY="${AOCL_ROOT}/lib/libfftw3_threads.so" \
     -DFFTW3F_LIBRARY="${AOCL_ROOT}/lib/libfftw3f.so" \
@@ -419,7 +418,7 @@ From: fedora:39
     -DLAPACK_LIBRARIES="${AOCL_ROOT}/lib/libflame.so" \
     -DBLAS_openblas_LIBRARY="${AOCL_ROOT}/lib/libblis.so" \
     -DCMAKE_CXX_FLAGS="-march=${MARCH} -L${AOCL_ROOT}/lib -lamdlibm -lm -O3 -Ofast" \
-        -DCMAKE_C_FLAGS="-march=${MARCH} -L${AOCL_ROOT}/lib -lamdlibm -lm -O3 -Ofast" \
+    -DCMAKE_C_FLAGS="-march=${MARCH} -L${AOCL_ROOT}/lib -lamdlibm -lm -O3 -Ofast" \
     -DTARGET_CPU=$MARCH \
     ../src
     make -j $J
@@ -459,7 +458,7 @@ From: fedora:39
         cmake -DCMAKE_INSTALL_PREFIX:PATH=$INSTALLDIR/DP3 -DIDGAPI_LIBRARIES=$INSTALLDIR/idg/lib/libidg-api.so -DIDGAPI_INCLUDE_DIRS=$INSTALLDIR/idg/include -DAOFLAGGER_INCLUDE_DIR=$INSTALLDIR/aoflagger/include -DAOFLAGGER_LIB=$INSTALLDIR/aoflagger/lib/libaoflagger.so -DPORTABLE=True -DLIBDIRAC_PREFIX=$INSTALLDIR/sagecal/ -DBUILD_BENCHMARKS=OFF \
         -DBLAS_flexiblas_LIBRARY=${AOCL_ROOT}/lib/libblis.so \
         -DFFTW3F_LIB="${AOCL_ROOT}/lib/libfftw3f.so" \
-    -DFFTW3F_THREADS_LIBRARY="${AOCL_ROOT}/lib/libfftw3f_threads.so" \
+        -DFFTW3F_THREADS_LIBRARY="${AOCL_ROOT}/lib/libfftw3f_threads.so" \
         -DFFTW3_INCLUDE_DIR="${AOCL_ROOT}/include/" \
         -DLAPACK_flexiblas_LIBRARY=${AOCL_ROOT}/lib/libflame.so \
         ../src
@@ -467,7 +466,7 @@ From: fedora:39
         cmake -DCMAKE_INSTALL_PREFIX:PATH=$INSTALLDIR/DP3 -DIDGAPI_LIBRARIES=$INSTALLDIR/idg/lib/libidg-api.so -DIDGAPI_INCLUDE_DIRS=$INSTALLDIR/idg/include -DAOFLAGGER_INCLUDE_DIR=$INSTALLDIR/aoflagger/include -DAOFLAGGER_LIB=$INSTALLDIR/aoflagger/lib/libaoflagger.so -DTARGET_CPU=${MARCH} -DLIBDIRAC_PREFIX=$INSTALLDIR/sagecal/ -DBUILD_BENCHMARKS=OFF \
         -DBLAS_flexiblas_LIBRARY=${AOCL_ROOT}/lib/libblis.so \
         -DFFTW3F_LIB="${AOCL_ROOT}/lib/libfftw3f.so" \
-    -DFFTW3F_THREADS_LIBRARY="${AOCL_ROOT}/lib/libfftw3f_threads.so" \
+        -DFFTW3F_THREADS_LIBRARY="${AOCL_ROOT}/lib/libfftw3f_threads.so" \
         -DFFTW3_INCLUDE_DIR="${AOCL_ROOT}/include/" \
         -DLAPACK_flexiblas_LIBRARY=${AOCL_ROOT}/lib/libflame.so \
         ../src
@@ -515,17 +514,17 @@ From: fedora:39
         cmake -DCMAKE_INSTALL_PREFIX=$INSTALLDIR/wsclean -DPORTABLE=True ..
     else
         cmake -DCMAKE_INSTALL_PREFIX=$INSTALLDIR/wsclean \
-    -DTARGET_CPU=${MARCH} \
-    -DFFTW3_LIB="${AOCL_ROOT}/lib/libfftw3.so" \
-    -DFFTW3_THREADS_LIB="${AOCL_ROOT}/lib/libfftw3_threads.so" \
-    -DFFTW3F_LIB="${AOCL_ROOT}/lib/libfftw3f.so" \
-    -DFFTW3F_THREADS_LIB="${AOCL_ROOT}/lib/libfftw3f_threads.so" \
-    -DFFTW3_INCLUDE_DIR="${AOCL_ROOT}/include" \
-    -DBLAS_openblas_LIBRARY="${AOCL_ROOT}/lib/libblis.so" \
-    -DLAPACK_LIBRARIES="${AOCL_ROOT}/lib/libflame.so" \
-    -DCMAKE_CXX_FLAGS="-march=${MARCH} -L${AOCL_ROOT}/lib -lamdlibm -lm -O3 -Ofast" \
+        -DTARGET_CPU=${MARCH} \
+        -DFFTW3_LIB="${AOCL_ROOT}/lib/libfftw3.so" \
+        -DFFTW3_THREADS_LIB="${AOCL_ROOT}/lib/libfftw3_threads.so" \
+        -DFFTW3F_LIB="${AOCL_ROOT}/lib/libfftw3f.so" \
+        -DFFTW3F_THREADS_LIB="${AOCL_ROOT}/lib/libfftw3f_threads.so" \
+        -DFFTW3_INCLUDE_DIR="${AOCL_ROOT}/include" \
+        -DBLAS_openblas_LIBRARY="${AOCL_ROOT}/lib/libblis.so" \
+        -DLAPACK_LIBRARIES="${AOCL_ROOT}/lib/libflame.so" \
+        -DCMAKE_CXX_FLAGS="-march=${MARCH} -L${AOCL_ROOT}/lib -lamdlibm -lm -O3 -Ofast" \
         -DCMAKE_C_FLAGS="-march=${MARCH} -L${AOCL_ROOT}/lib -lamdlibm -lm -O3 -Ofast" \
-    ..
+        ..
     fi
     make -j ${J}
     make install
