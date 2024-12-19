@@ -149,7 +149,8 @@ From: fedora:39
     ./configure --enable-threads --enable-sse2 --enable-avx --enable-avx2 --enable-avx512 --enable-mpi --enable-openmp --enable-shared --enable-amd-opt --enable-amd-mpifft --prefix=/opt/aocl/4.0
     make -j $J
     make install
-
+    cd $INSTALLDIR
+    rm -rf /opt/fftw
     ls /opt/aocl/4.0/lib/
     #
     # End AMD installs
