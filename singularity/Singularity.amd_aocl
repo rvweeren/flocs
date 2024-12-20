@@ -37,7 +37,7 @@ From: fedora:39
     export IDG_VERSION=011687ed
     export LAPACK_VERSION=3.8.0
     export LOSOTO_VERSION=latest
-    export OPENBLAS_VERSION=v0.3.22
+    export OPENBLAS_VERSION=v0.3.28
     export PYBDSF_VERSION=720f5c3
     export PYTHON_CASACORE_VERSION=3.6.1
     export RMEXTRACT_VERSION=0.5.0
