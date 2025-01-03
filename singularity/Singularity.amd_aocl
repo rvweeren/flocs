@@ -233,8 +233,6 @@ From: fedora:39
     pip install --no-binary pandas pandas
     pip install --no-binary h5py h5py
     pip install -r $INSTALLDIR/requirements.txt
-    # Install this separately since it keeps forcefully downgrading numpy.
-    pip install --no-deps lofarSun
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 
     #
