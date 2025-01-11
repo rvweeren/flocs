@@ -304,8 +304,9 @@ From: fedora:40
     cd $INSTALLDIR/casacore
     git clone https://github.com/casacore/casacore.git src
     cd ${INSTALLDIR}/casacore/src && git checkout tags/${CASACORE_VERSION} && echo export CASACORE_VERSION=$(git rev-parse --short HEAD) >> $INSTALLDIR/init.sh
-    cd ${INSTALLDIR}/casacore/data && wget --progress=bar:force:noscroll --retry-connrefused ftp://anonymous@ftp.astron.nl/outgoing/Measures/WSRT_Measures.ztar
-    cd ${INSTALLDIR}/casacore/data && tar xf WSRT_Measures.ztar && rm WSRT_Measures.ztar
+    cd ${INSTALLDIR}/casacore/data
+    ncftpget ftp://anonymous@ftp.astron.nl/outgoing/Measures/WSRT_Measures.ztar
+    tar xf WSRT_Measures.ztar && rm WSRT_Measures.ztar
     cd ${INSTALLDIR}/casacore/build
     cmake $CMAKE_ADD_OPTION \
         -DCMAKE_INSTALL_PREFIX=${INSTALLDIR}/casacore/ \
