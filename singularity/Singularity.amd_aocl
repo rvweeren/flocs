@@ -27,7 +27,7 @@ From: fedora:40
     export DYSCO_VERSION=682fe5
     export EVERYBEAM_VERSION=65685cba
     export HDF5_VERSION=1.14.5
-    export IDG_VERSION=011687ed
+    export IDG_VERSION=2af6f285
     export LOSOTO_VERSION=latest
     export OPENBLAS_VERSION=v0.3.28
     export PYBDSF_VERSION=720f5c3
