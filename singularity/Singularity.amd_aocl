@@ -365,7 +365,6 @@ From: fedora:40
         -DBLA_VENDOR=AOCL_mt \
         -DCMAKE_INSTALL_PREFIX=$INSTALLDIR/sagecal \
         -DLIB_ONLY=True \
-        -DCMAKE_CXX_FLAGS='-g0' -DCMAKE_C_FLAGS='-g0' -DCMAKE_Fortran_FLAGS='-g0' \
         ../src
     make -j $j
     make install
