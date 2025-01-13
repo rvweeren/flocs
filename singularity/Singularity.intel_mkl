@@ -162,6 +162,8 @@ EOF
         sudo dnf -y config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/fedora39/x86_64/cuda-fedora39.repo
         sudo dnf -y clean all
         sudo dnf -y install cuda-12-6
+        export CUDA_HOME=/usr/local/cuda
+        export PATH=$CUDA_HOME/bin:$PATH
     fi
 
     flexiblas add OPENBLAS /opt/OpenBLAS/lib64/libopenblas.so
@@ -673,7 +675,6 @@ EOF
     echo export INSTALLDIR=$INSTALLDIR >> $INSTALLDIR/init.sh
     echo export PYTHONPATH=\$INSTALLDIR/VLBI-cwl/scripts:\$INSTALLDIR/LINC/scripts:\$INSTALLDIR/lofar/lib64/python$PYTHON_VERSION/site-packages:\$INSTALLDIR/DP3/lib/python$PYTHON_VERSION/site-packages:\$INSTALLDIR/DP3/usermodules:\$INSTALLDIR/EveryBeam/lib64/python$PYTHON_VERSION/site-packages:\$PYTHONPATH >> $INSTALLDIR/init.sh
     echo export PYTHONPATH=\$INSTALLDIR/aoflagger/lib:\$PYTHONPATH >> $INSTALLDIR/init.sh
-    echo export PATH=/usr/local/cuda/bin:\$PATH >> $INSTALLDIR/init.sh
     # echo export PATH=/opt/montage/Montage-6.0/bin:\$PATH  >> $INSTALLDIR/init.sh
     echo export PATH=\$INSTALLDIR/aoflagger/bin:\$PATH  >> $INSTALLDIR/init.sh
     echo export PATH=\$INSTALLDIR/casacore/bin:\$PATH  >> $INSTALLDIR/init.sh
@@ -690,7 +691,6 @@ EOF
     echo export PATH=\$INSTALLDIR/MultiNest/bin:\$PATH >> $INSTALLDIR/init.sh
     echo export PATH=/usr/lib64/openmpi/bin:\$PATH >> $INSTALLDIR/init.sh
     echo export PATH=\$INSTALLDIR/VLBI-cwl/scripts:\$PATH >> $INSTALLDIR/init.sh
-    echo export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/opt/intel/mkl/lib/intel64/:\$LD_LIBRARY_PATH >> $INSTALLDIR/init.sh
     echo export LD_LIBRARY_PATH=\$INSTALLDIR/aoflagger/lib:\$INSTALLDIR/casacore/lib:\$INSTALLDIR/DP3/lib:\$INSTALLDIR/dysco/lib:\$INSTALLDIR/EveryBeam/lib:/opt/hdf5/lib:\$INSTALLDIR/idg/lib:\$INSTALLDIR/lofar/lib:\$INSTALLDIR/lofar/lib64:\$LD_LIBRARY_PATH  >> $INSTALLDIR/init.sh
     echo export LD_LIBRARY_PATH=/opt/OpenBLAS/lib64:\$LD_LIBRARY_PATH >> $INSTALLDIR/init.sh
     echo export LD_LIBRARY_PATH=/usr/lib64/openmpi/lib/:\$LD_LIBRARY_PATH >> $INSTALLDIR/init.sh
@@ -704,6 +704,11 @@ EOF
     echo export OMP_NUM_THREADS=\$NCPU >> $INSTALLDIR/init.sh
     echo export OMP_MAX_THREADS=\$NCPU >> $INSTALLDIR/init.sh
     echo export HAS_CUDA=$HAS_CUDA >> $INSTALLDIR/init.sh
+    if [ $HAS_CUDA = true ]; then
+        echo export CUDA_HOME=/usr/local/cuda >> $INSTALLDIR/init.sh
+        echo export PATH=\$CUDA_HOME/bin:\$PATH >> $INSTALLDIR/init.sh
+        echo export LD_LIBRARY_PATH=\$CUDA_HOME/lib64:\$LD_LIBRARY_PATH >> $INSTALLDIR/init.sh
+    fi
     echo export HAS_MKL=$HAS_MKL >> $INSTALLDIR/init.sh
     echo flexiblas add OPENBLAS /opt/OpenBLAS/lib64/libopenblas.so >> $INSTALLDIR/init.sh
     echo flexiblas64 add OPENBLAS /opt/OpenBLAS/lib64/libopenblas.so >> $INSTALLDIR/init.sh
