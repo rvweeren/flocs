@@ -536,6 +536,9 @@ EOF
     find DDFacet/ -name "*.c" -exec sed -i "s/PyArray_INT32/NPY_INT32/g" {} \;
     find DDFacet/ -name "*.c" -exec sed -i "s/PyArray_FLOAT32/NPY_FLOAT32/g" {} \;
 
+    sed -i 's/SafeConfigParser/ConfigParser/g' /opt/lofar/ddf-pipeline/utils/options.py
+    sed -i 's/SafeConfigParser/ConfigParser/g' /opt/lofar/ddf-pipeline/scripts/pipeline.py
+
     pip install --no-deps DDFacet/
 
 
