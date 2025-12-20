@@ -88,6 +88,8 @@ texinfo
 vim
 wcslib
 wcslib-devel
+webkit2gtk4.0
+webkit2gtk4.0-devel
 wget
 which
 xz-devel
